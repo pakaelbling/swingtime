@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <body>
+        <h1>
+            Home
+        </h1>
+    <h3>Current Predicted Wait Time at {{time.strftime("%I:%M")}} is {{est}} minutes!</h3>
+        <img src="{{url_for('static',filename='chart.png')}}" alt="">
+    </body>
+    <body class = "text-muted">My predictions only get better the more data I have.
+    So, if you feel like helping, make an account and submit a datapoint!</body>
+{% endblock content %}

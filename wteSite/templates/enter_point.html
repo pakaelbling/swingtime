@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class = "content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="formgroup">
+                <legend class = "border-bottom mb-4">
+                    Submit a datapoint!!
+                </legend>
+                <div class = "form-group">
+                    {{form.wait_time.label(class="form-control-label")}}
+                    {% if form.wait_time.errors %}
+                        {{form.wait_time(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.wait_time.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{form.wait_time(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class = "form-group">
+                {{form.submit(classs = "btn btn-outline-info")}}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
