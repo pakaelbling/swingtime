@@ -1,0 +1,6 @@
+/.idea
+/__pycache__
+/requirements.txt
+/root.pyc
+/wteSite/__init__.pyc
+/wteSite/__pycache__/
