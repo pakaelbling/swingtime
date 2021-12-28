@@ -7,7 +7,8 @@ from wteSite.models import Datapoint, User
 from wteSite.util import date_transform_query, date_transform_point
 from flask_mail import Message
 
-
+#These functions define the behaviour for the various pages in the website, ultimately rendering the templates seen in ./templates
+#and providing them with the necessary dynamic information.
 
 @app.route("/")
 @app.route("/home")

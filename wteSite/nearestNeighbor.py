@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-from PIL import Image
 from datetime import datetime
 
+#Superclass for the predictor used, just defines some basic methods
 class regressionPredictor():
     def __init__(self,initialData, alpha):
         self.data = initialData
@@ -30,6 +30,8 @@ class regressionPredictor():
         plt.xticks(ticks, tickLabels)
         plt.savefig(filename)
 
+#Defines a naive nearest neighbor predictor inheriting from regressionPredictor
+#Predicts desired quantity based on the nearest (according to distFun) point in the observed data
 class naiveNearestNeighbor(regressionPredictor):
     def __init__(self, distFun, alpha, initialData = None):
         if initialData is None:
@@ -56,6 +58,8 @@ class naiveNearestNeighbor(regressionPredictor):
             self.data[key] = currVal + self.alpha * (val - currVal)
         self.makePredictionChart('wteSite/static/chart.png')
 
+#Extends naiveNearestNeighbor, overriding predict by instead averaging the
+# n nearest points in the observed data if possible
 class nNearestNeighbor(naiveNearestNeighbor):
     def __init__(self, distFun, alpha, n, initialData = None):
         super().__init__(distFun, alpha, initialData)

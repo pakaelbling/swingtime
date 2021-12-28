@@ -1,3 +1,4 @@
+#Some helpful functions for transforming the date inputs
 def date_transform_query(date):
     minutes = date.hour * 60 + date.minute
     offsetFrom11 =  minutes- 11*60
