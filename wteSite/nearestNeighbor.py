@@ -33,12 +33,13 @@ class regressionPredictor():
 #Defines a naive nearest neighbor predictor inheriting from regressionPredictor
 #Predicts desired quantity based on the nearest (according to distFun) point in the observed data
 class naiveNearestNeighbor(regressionPredictor):
-    def __init__(self, distFun, alpha, initialData = None):
+    def __init__(self, distFun, alpha, initialData = None, makeCharts=False):
         if initialData is None:
             super().__init__({}, alpha)
         else:
-            super.__init__(initialData, alpha)
+            super().__init__(initialData, alpha)
         self.distFun = distFun
+        self.makeCharts = makeCharts
 
     def predict(self, key):
         minDist = float('inf')
@@ -56,13 +57,14 @@ class naiveNearestNeighbor(regressionPredictor):
             self.data[key] = val
         else:
             self.data[key] = currVal + self.alpha * (val - currVal)
-        self.makePredictionChart('wteSite/static/chart.png')
+        if self.makeCharts:
+            self.makePredictionChart('wteSite/static/chart.png')
 
 #Extends naiveNearestNeighbor, overriding predict by instead averaging the
 # n nearest points in the observed data if possible
 class nNearestNeighbor(naiveNearestNeighbor):
-    def __init__(self, distFun, alpha, n, initialData = None):
-        super().__init__(distFun, alpha, initialData)
+    def __init__(self, distFun, alpha, n, initialData = None, makeCharts=False):
+        super().__init__(distFun, alpha, initialData, makeCharts)
         self.n = n
 
     def predict(self, key):

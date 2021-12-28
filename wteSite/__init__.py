@@ -39,7 +39,7 @@ def betterDist(x,y):
 
 from wteSite.models import Datapoint
 #Instantiate predictor and populate it with stored datapoints
-predictor = nn.nNearestNeighbor(betterDist, alpha=0.8,n=3)
+predictor = nn.nNearestNeighbor(betterDist, alpha=0.8,n=3, makeCharts = True)
 loadedData = [((p.date_created, p.day_of_week),p.wait_time) for p in Datapoint.query.all()]
 processed = [(((date.hour * 60 + date.minute - wait) - 11*60, day),wait) for ((date, day), wait) in loadedData]
 [predictor.addDatum(key,val) for (key, val) in processed]
