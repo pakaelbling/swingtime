@@ -1,1 +1,3 @@
-# swingtime
+## About
+**swingtime** is a website I made as part of [weshack](https://www.weshack.org), a hackathon hosted at Wesleyan University. It was formerly hosted at https://swingtime.xyz. This repo contains the source code. It predicts the wait time at one of the campus dining halls (colloquially known as [Swings](https://weswings.com)) using [k-Nearest Neighbors regression](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm). 
+The CSS, html templates, and flask parts were modified from a tutorial found here [as a playlist](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1&ab_channel=CoreySchafer), with the nearestNeighbors implementation and accompanying tests being entirely original work.
